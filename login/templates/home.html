@@ -1,0 +1,31 @@
+{% extends 'nav.html'%}
+
+{% block title%} welcome to meshop {% endblock%}
+{% block body%}
+<section class="text-gray-700 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
+      <h1 class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900">
+        {{name}} logged in successfully with username : {{username}}<br>{{message}}</h1>
+      <button  class="flex-shrink-0 text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg mt-10 sm:mt-0">Button</button>
+    </div>
+  </div>
+</section>
+{% endblock%}
+{% block js%}
+<script>
+//find out the login or not from localStorage....
+        if (localStorage.getItem('log')==null){
+        localStorage.setItem('log',{{id}});
+        var login = {{id}};
+        }else{
+        var login = localStorage.getItem('log');
+        }
+
+
+function al(){
+	localStorage.clear();
+	window.location= "http://127.0.0.1:8000";
+}
+</script>
+{% endblock%}
